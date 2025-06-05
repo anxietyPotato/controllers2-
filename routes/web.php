@@ -32,6 +32,6 @@ Route::post('/contact', function (Request $request) {
     return back()->with('success', 'Message sent successfully!');
 })->name('contact.submit');
 
-
+Route::get('/AllContact', [\App\Http\Controllers\ContactController::class, 'AllContact']);
 
 

@@ -15,3 +15,13 @@
     <p>current time is : {{ $currentTime }} </p>
 @endsection
 
+<h2>Latest Products</h2>
+<ul>
+    @foreach($latestProducts as $product)
+        <li>
+            <strong>{{ $product->name }}</strong> - {{ $product->description }} - {{ $product->price }}
+        </li>
+
+    @endforeach
+</ul>
+

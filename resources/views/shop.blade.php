@@ -4,13 +4,11 @@
 
 @section('pagecontent')
 
-    @foreach($products as $product )
-        @if($product == "iPhone 16" || $product == "iPhone 14")
-        <p>{{$product}} Super Snizenje</p>
-            @else
-            <p>{{$product}}</p>
+    @foreach($product as $products )
+       <div> <p> {{$products->name}}</p>
+        <p>{{$products->description}}</p>
+       </div>
 
-        @endif
 
     @endforeach
 
