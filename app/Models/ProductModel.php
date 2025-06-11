@@ -10,3 +10,5 @@ class ProductModel extends Model
 protected $table = 'product';
 protected $fillable = ["name","description","price","amount","image"];
 }
+
+

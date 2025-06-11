@@ -16,4 +16,18 @@ class ContactController extends Controller
         return view('AllContact',compact('AllContact'));
 
     }
+    public function sendContact(Request $request){
+        $request->validate([
+            'email'=>'required|string',
+            'subject'=>'required|string',
+          'message'=>'required|string|min:5|max:255',
+        ]);
+
+ContactModel::create([
+    'email'=>$request->get('email'),
+    'subject'=>$request->get('subject'),
+    'message'=>$request->get('message'),
+]);
+return redirect('/shop');
+    }
 }

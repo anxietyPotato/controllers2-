@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [\App\Http\Controllers\WelcomePage::class, 'index']);
+
 Route::get('/about',function () {
     return view('about',["ime" => "Aleksandra",
         "prezime" => "Cvetic",]);
 });
+
 Route::get('/shop',[\App\Http\Controllers\shopPage::class, 'index']);
 
 use Illuminate\Http\Request;
@@ -34,4 +36,12 @@ Route::post('/contact', function (Request $request) {
 
 Route::get('/AllContact', [\App\Http\Controllers\ContactController::class, 'AllContact']);
 
+Route::post('/send-contact', [\App\Http\Controllers\ContactController::class, 'sendContact']);
 
+Route::get('/admin/add-product', function () {
+    return view('addproduct');
+});
+
+Route::post('/admin/add-product', [\App\Http\Controllers\shopPage::class, 'addProduct']);
+
+Route::get('/admin/add-product', [\App\Http\Controllers\shopPage::class, 'showForm']);

@@ -12,4 +12,28 @@ class shopPage extends Controller
         return view('shop',compact('product'));
 
     }
+
+
+    public function addProduct(Request $request) {
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'amount' => 'required|integer|min:1',
+            'price' => 'required|numeric|min:0',
+            'image' => 'required|string',
+        ]);
+
+
+
+        ProductModel::create($validated);
+
+        return redirect()->back()->with('success', 'Product added successfully!');
+    }
+
+    public function showForm() {
+        $products = ProductModel::all();
+        return view('addproduct', compact('products'));
+    }
+
+
 }
